@@ -9,5 +9,6 @@
     <string name="Payment_freq">Payment Frequency</string>
     <string name="Amortization">Amortization Period </string>
     <string name="Calculate">Calculate</string>
-    <string name="intent">Call For Appointment</string>
+    <string name="intent">Call</string>
+    <string name="intent_2">Save info</string>
 </resources>

@@ -40,22 +40,32 @@ public class monthlypayment extends Fragment {
         // Unpack bundle values
         double interest = mc.getInterest();
         double monthlyPayment = mc.monthlyPayment();
+        double principal = mc.getPrincipal();
+        double amortization = mc.getAmortization();
 
-        // Set two decimal places for Payment and Interest
+        // Format output of strings
         String interestString = String.format("%.2f%%", interest);
         String monthlyPaymentString = String.format("$%.2f", monthlyPayment);
+        String amortizationString = String.valueOf((int) amortization) + " Years";
+        String principalString = String.valueOf((int) principal);
 
         //Set view texts
         binding.v2interest.setText(interestString);
         binding.v2monthly.setText(monthlyPaymentString);
-        binding.v2principal.setText(String.valueOf((int) mc.getPrincipal()));
-        binding.v2amortization.setText(String.valueOf((int) mc.getAmortization()) + " Years");
+        binding.v2principal.setText(amortizationString);
+        binding.v2amortization.setText(principalString);
 
         //Intent call Phone Number
         binding.intent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialPhoneNumber("18005554455");
+            }
+        });
+        binding.intent2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveData(principalString, interestString, monthlyPaymentString, amortizationString);
             }
         });
         //Recalculate Button Navigate to Home Fragment
@@ -79,6 +89,20 @@ public class monthlypayment extends Fragment {
         intent.setData(Uri.parse("tel:" + phoneNumber));
         startActivity(intent);
 
+    }
+    public void saveData(String principal,
+                         String interest,
+                         String monthlypayment,
+                         String amortization ){
+
+        Intent dataIntent = new Intent(Intent.ACTION_SEND);
+        dataIntent.setType("text/plain");
+        dataIntent.putExtra(Intent.EXTRA_TEXT,
+                "Monthly Payment: " + monthlypayment +
+                        "\nPrincipal: " + principal +
+                        "\nInterest Rate: "+ interest +
+                        "\nAmortization: "+ amortization);
+        startActivity(Intent.createChooser(dataIntent, "Mortgage Results"));
     }
 
 }

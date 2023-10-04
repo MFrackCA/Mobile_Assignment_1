@@ -41,11 +41,16 @@ public class MortgageCalculator implements Serializable {
     }
 
 
+    // P x R x (1+R)^N / [(1+R)^N-1] where
+    //P = Principal loan amount
+    //N = number of payments
+    //R = Monthly interest rate
     public double monthlyPayment(){
         double monthlyInterestRate = interest / 12 / 100;
         double numberOfPayments = amortization * 12;
-        double denominator = Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1;
-        return principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments) / denominator;
+        double rate = Math.pow(1 + monthlyInterestRate, numberOfPayments);
+        double emi = principal * monthlyInterestRate * rate/rate-1;
+        return emi;
     }
 
     // Additional methods for calculations can be added here
