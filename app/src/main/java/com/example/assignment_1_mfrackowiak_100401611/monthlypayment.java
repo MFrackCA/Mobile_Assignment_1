@@ -62,6 +62,7 @@ public class monthlypayment extends Fragment {
                 dialPhoneNumber("18005554455");
             }
         });
+        //Intent Save Data for mortage payment
         binding.intent2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +91,7 @@ public class monthlypayment extends Fragment {
         startActivity(intent);
 
     }
+    // Save data taht user entered plus calculation for mortgage by using Intent
     public void saveData(String principal,
                          String interest,
                          String monthlypayment,
