@@ -58,7 +58,7 @@ public class monthlypayment extends Fragment {
                 dialPhoneNumber("18005554455");
             }
         });
-
+        //Recalculate Button Navigate to Home Fragment
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +73,7 @@ public class monthlypayment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
+    // Intent for dialing phone number function
     public void dialPhoneNumber(String phoneNumber) {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));

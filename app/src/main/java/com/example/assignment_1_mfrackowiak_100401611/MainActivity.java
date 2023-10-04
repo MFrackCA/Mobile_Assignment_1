@@ -22,12 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         setSupportActionBar(binding.toolbar);
 
+        // setup nav controller for host frag
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
 
     }
+    //Generates Navigate back in toolbar
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
