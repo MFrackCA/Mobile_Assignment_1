@@ -1,0 +1,10 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Assignment_1_Mfrackowiak_100401611" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:statusBarColor">@color/orange</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Assignment_1_Mfrackowiak_100401611" parent="Base.Theme.Assignment_1_Mfrackowiak_100401611" />
+</resources>
